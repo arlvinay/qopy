@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  isGuest   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  files     File[]
+  orders    Order[]
+}
+
+model File {
+  id        String   @id @default(uuid())
+  url       String
+  name      String
+  size      Int
+  pageCount Int
+  mimeType  String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Order {
+  id              String     @id @default(uuid())
+  amount          Int
+  currency        String     @default("INR")
+  status          String     // PENDING, PAID, FAILED
+  razorpayOrderId String?
+  userId          String
+  user            User       @relation(fields: [userId], references: [id])
+  printJobs       PrintJob[]
+  createdAt       DateTime   @default(now())
+}
+
+model PrintJob {
+  id        String   @id @default(uuid())
+  status    String   // QUEUED, PRINTING, COMPLETED, FAILED
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
