@@ -29,8 +29,9 @@ export function FileUpload() {
             <div
                 {...getRootProps()}
                 className={cn(
-                    "relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-xl cursor-pointer transition-colors duration-200 ease-in-out bg-zinc-50/50 hover:bg-zinc-50",
-                    isDragActive ? "border-emerald-500 bg-emerald-50/50" : "border-zinc-200",
+                    "relative flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-xl cursor-pointer transition-colors duration-200 ease-in-out",
+                    "border-emerald-500 bg-emerald-50/30 hover:bg-emerald-50/50", // Always green
+                    isDragActive && "bg-emerald-50/80",
                     fileRejections.length > 0 && "border-red-500 bg-red-50/50"
                 )}
             >
@@ -43,11 +44,11 @@ export function FileUpload() {
                         <Upload className="w-8 h-8" />
                     </div>
                     {isDragActive ? (
-                        <p className="text-lg font-medium text-emerald-600">Drop files here...</p>
+                        <p className="text-lg font-medium text-emerald-600"> Upload files here...</p>
                     ) : (
                         <>
                             <p className="mb-2 text-lg font-medium text-zinc-700">
-                                Click to upload or drag and drop
+                                Click to upload
                             </p>
                             <p className="text-sm text-zinc-500">
                                 PDF, DOCX, JPG or PNG (MAX. 50MB)
