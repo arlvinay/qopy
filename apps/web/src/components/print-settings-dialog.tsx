@@ -100,55 +100,55 @@ export function PrintSettingsDialog({ file, open, onOpenChange }: PrintSettingsD
                             {/* Print Density */}
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-zinc-900 text-sm">Print Density</h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div className="grid grid-cols-3 gap-2">
                                     <button
                                         onClick={() => updateFileOptions(file.id, { density: 'lighter' })}
                                         className={cn(
-                                            "relative p-3 rounded-xl border-2 text-left transition-all",
+                                            "relative p-2 sm:p-3 rounded-xl border-2 text-left transition-all",
                                             options.density === 'lighter'
                                                 ? "border-emerald-600 bg-emerald-50/50"
                                                 : "border-zinc-200 bg-white hover:border-zinc-300"
                                         )}
                                     >
-                                        <div className="font-medium text-zinc-900">Lighter</div>
-                                        <div className="text-sm text-zinc-500 mt-1">Save ink</div>
+                                        <div className="font-medium text-zinc-900 text-xs sm:text-base">Lighter</div>
+                                        <div className="text-[10px] sm:text-xs text-zinc-500 mt-0.5">Save ink</div>
                                         {options.density === 'lighter' && (
-                                            <div className="absolute top-4 right-4 text-emerald-600">
-                                                <CheckCircle2 className="h-5 w-5" />
+                                            <div className="absolute top-1 right-1 sm:top-2 sm:right-2 text-emerald-600">
+                                                <CheckCircle2 className="h-4 w-4" />
                                             </div>
                                         )}
                                     </button>
                                     <button
                                         onClick={() => updateFileOptions(file.id, { density: 'normal' })}
                                         className={cn(
-                                            "relative p-3 rounded-xl border-2 text-left transition-all",
+                                            "relative p-2 sm:p-3 rounded-xl border-2 text-left transition-all",
                                             options.density === 'normal'
                                                 ? "border-emerald-600 bg-emerald-50/50"
                                                 : "border-zinc-200 bg-white hover:border-zinc-300"
                                         )}
                                     >
-                                        <div className="font-medium text-zinc-900">Normal</div>
-                                        <div className="text-sm text-zinc-500 mt-1">Standard</div>
+                                        <div className="font-medium text-zinc-900 text-xs sm:text-base">Normal</div>
+                                        <div className="text-[10px] sm:text-xs text-zinc-500 mt-0.5">Standard</div>
                                         {options.density === 'normal' && (
-                                            <div className="absolute top-4 right-4 text-emerald-600">
-                                                <CheckCircle2 className="h-5 w-5" />
+                                            <div className="absolute top-1 right-1 sm:top-2 sm:right-2 text-emerald-600">
+                                                <CheckCircle2 className="h-4 w-4" />
                                             </div>
                                         )}
                                     </button>
                                     <button
                                         onClick={() => updateFileOptions(file.id, { density: 'dark' })}
                                         className={cn(
-                                            "relative p-3 rounded-xl border-2 text-left transition-all",
+                                            "relative p-2 sm:p-3 rounded-xl border-2 text-left transition-all",
                                             options.density === 'dark'
                                                 ? "border-emerald-600 bg-emerald-50/50"
                                                 : "border-zinc-200 bg-white hover:border-zinc-300"
                                         )}
                                     >
-                                        <div className="font-medium text-zinc-900">Dark</div>
-                                        <div className="text-sm text-zinc-500 mt-1">Best quality</div>
+                                        <div className="font-medium text-zinc-900 text-xs sm:text-base">Dark</div>
+                                        <div className="text-[10px] sm:text-xs text-zinc-500 mt-0.5">Best quality</div>
                                         {options.density === 'dark' && (
-                                            <div className="absolute top-4 right-4 text-emerald-600">
-                                                <CheckCircle2 className="h-5 w-5" />
+                                            <div className="absolute top-1 right-1 sm:top-2 sm:right-2 text-emerald-600">
+                                                <CheckCircle2 className="h-4 w-4" />
                                             </div>
                                         )}
                                     </button>
@@ -158,22 +158,22 @@ export function PrintSettingsDialog({ file, open, onOpenChange }: PrintSettingsD
                             {/* Pages Per Sheet */}
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-zinc-900 text-sm">Pages Per Sheet (N-Up)</h3>
-                                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                                <div className="grid grid-cols-5 gap-2">
                                     {[1, 2, 4, 6, 8].map((num) => (
                                         <button
                                             key={num}
                                             onClick={() => updateFileOptions(file.id, { pagesPerPage: num as 1 | 2 | 4 | 6 | 8 })}
                                             className={cn(
-                                                "relative p-2 rounded-xl border-2 text-center transition-all flex flex-col items-center justify-center h-14",
+                                                "relative p-1 rounded-xl border-2 text-center transition-all flex flex-col items-center justify-center h-12 sm:h-14",
                                                 options.pagesPerPage === num
                                                     ? "border-emerald-600 bg-emerald-50/50"
                                                     : "border-zinc-200 bg-white hover:border-zinc-300"
                                             )}
                                         >
-                                            <div className="font-medium text-zinc-900 text-lg">{num}</div>
-                                            <div className="text-[10px] text-zinc-500">{num === 1 ? 'Page' : `Pages`}</div>
+                                            <div className="font-medium text-zinc-900 text-base sm:text-lg">{num}</div>
+                                            <div className="text-[8px] sm:text-[10px] text-zinc-500 leading-none">{num === 1 ? 'Page' : `Pages`}</div>
                                             {options.pagesPerPage === num && (
-                                                <div className="absolute top-1 right-1 text-emerald-600">
+                                                <div className="absolute top-0.5 right-0.5 text-emerald-600">
                                                     <CheckCircle2 className="h-3 w-3" />
                                                 </div>
                                             )}

@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
+import { truncateFileName } from '@/lib/utils'
 import { useCart } from '@/context/cart-context'
 import { FileText, Trash2, CreditCard, Settings2, Plus, Minus } from 'lucide-react'
 import { Button } from "@/components/ui/button"
@@ -92,7 +93,7 @@ export function CartList() {
                             )}
                         </div>
                         <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-medium text-zinc-900 truncate">{item.file.name}</h4>
+                            <h4 className="text-sm font-medium text-zinc-900 truncate">{truncateFileName(item.file.name, 25)}</h4>
                             <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500 mt-1">
                                 <span>{(item.file.size / 1024 / 1024).toFixed(2)} MB</span>
                                 <span className="hidden sm:inline">•</span>
@@ -171,11 +172,11 @@ export function CartList() {
             </div>
 
             {/* Sticky Footer for Mobile / Sidebar Content */}
-            <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 lg:static lg:bg-transparent lg:border-none z-40">
-                <div className="lg:bg-zinc-900 lg:text-white lg:rounded-2xl lg:shadow-lg lg:p-6 p-3">
+            <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 lg:static lg:bg-transparent lg:border-none z-50">
+                <div className="lg:bg-zinc-900 lg:text-white lg:rounded-2xl lg:shadow-lg lg:p-6 p-3 safe-area-bottom">
 
-                    {/* Breakdown Section */}
-                    <div className="mb-3 pb-3 border-b border-zinc-100 lg:border-zinc-700 grid grid-cols-3 gap-2 text-xs lg:text-sm">
+                    {/* Breakdown Section - Hidden on very small screens if needed, or compacted */}
+                    <div className="mb-2 pb-2 border-b border-zinc-100 lg:border-zinc-700 grid grid-cols-4 lg:grid-cols-3 gap-2 text-[10px] lg:text-sm">
                         <div className="flex flex-col lg:flex-row lg:justify-between text-zinc-600 lg:text-zinc-400">
                             <span>Sheets</span>
                             <span className="font-medium text-zinc-900 lg:text-white">{totalSheets}</span>
@@ -191,20 +192,20 @@ export function CartList() {
                             </div>
                         )}
                         <div className="flex flex-col lg:flex-row lg:justify-between text-zinc-600 lg:text-zinc-400">
-                            <span>Print Cost</span>
+                            <span>Print</span>
                             <span className="font-medium text-zinc-900 lg:text-white">₹{printingCost}</span>
                         </div>
                     </div>
 
                     <div className="container mx-auto flex items-center justify-between lg:block">
-                        <div className="lg:mb-4">
-                            <p className="text-zinc-500 text-xs lg:text-zinc-400 lg:text-sm">Total Amount</p>
-                            <p className="text-xl font-bold text-zinc-900 lg:text-white lg:text-2xl">₹{totalPrice}</p>
+                        <div className="lg:mb-4 flex flex-col justify-center">
+                            <p className="text-zinc-500 text-[10px] lg:text-zinc-400 lg:text-sm leading-tight">Total Amount</p>
+                            <p className="text-lg font-bold text-zinc-900 lg:text-white lg:text-2xl leading-tight">₹{totalPrice}</p>
                         </div>
                         <button
                             onClick={handlePayment}
                             disabled={isProcessing}
-                            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-xl font-medium transition-colors shadow-lg shadow-emerald-500/20 lg:w-full lg:justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-medium transition-colors shadow-lg shadow-emerald-500/20 lg:w-full lg:justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <CreditCard className="h-4 w-4" />
                             <span className="hidden sm:inline">{isProcessing ? 'Processing...' : 'Pay & Print'}</span>
