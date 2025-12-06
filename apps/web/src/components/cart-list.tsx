@@ -44,7 +44,7 @@ export function CartList() {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_placeholder', // Replace with env var
                 amount: data.amount,
                 currency: data.currency,
-                name: "Qopy Printing Service",
+                name: "Quick Copy Printing Service",
                 description: "Print Job Payment",
                 order_id: data.id,
                 handler: function (response: any) {

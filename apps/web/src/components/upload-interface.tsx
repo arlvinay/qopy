@@ -30,7 +30,7 @@ export function UploadInterface({
                             <div className="relative h-14 w-40">
                                 <Image
                                     src="/logo.png"
-                                    alt="Qopy"
+                                    alt="Quick Copy"
                                     fill
                                     className="object-contain object-left"
                                     priority

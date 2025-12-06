@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowRight, CheckCircle2, Printer, Upload, CreditCard, Zap, Shield, Smartphone, Menu } from "lucide-react"
+import { ArrowRight, CheckCircle2, Printer, Upload, CreditCard, Zap, Shield, Smartphone, Menu, FileText, Palette, FolderOpen } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -15,7 +15,7 @@ export default function LandingPage() {
             <div className="relative h-16 w-48">
               <Image
                 src="/logo.png"
-                alt="Qopy"
+                alt="Quick Copy"
                 fill
                 className="object-contain object-left"
                 priority
@@ -99,7 +99,7 @@ export default function LandingPage() {
                     </span>
                   </h1>
                   <p className="max-w-[600px] text-zinc-500 text-lg md:text-xl leading-relaxed">
-                    The modern way to print. Upload from your phone, pay instantly, and collect from any Qopy kiosk. No drivers, no hassle.
+                    The modern way to print. Upload from your phone, pay instantly, and collect from any Quick Copy kiosk. No drivers, no hassle.
                   </p>
                 </div>
                 <div className="flex flex-col gap-3 min-[400px]:flex-row">
@@ -114,7 +114,7 @@ export default function LandingPage() {
                     href="#locations"
                     className="inline-flex h-12 items-center justify-center rounded-full border border-zinc-200 bg-white px-8 text-base font-medium text-zinc-900 shadow-sm transition-all hover:bg-zinc-50 hover:border-zinc-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50"
                   >
-                    Qopy Locations
+                    Quick Copy Locations
                   </Link>
                 </div>
                 <div className="flex items-center gap-4 text-sm text-zinc-500">
@@ -216,6 +216,60 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="w-full py-16 md:py-32 bg-zinc-50 border-t border-zinc-200">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-5xl text-zinc-900">Simple, Transparent Pricing</h2>
+              <p className="max-w-[700px] text-zinc-500 md:text-xl/relaxed">
+                No subscription fees. No hidden charges. Just pay for what you print.
+              </p>
+            </div>
+            <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-3">
+              {[
+                {
+                  icon: FileText,
+                  title: "Black & White",
+                  price: "₹2",
+                  unit: "/ page",
+                  desc: "Crisp, high-contrast monochrome printing on 75 GSM paper.",
+                  color: "text-zinc-900"
+                },
+                {
+                  icon: Palette,
+                  title: "Color Print",
+                  price: "₹5",
+                  unit: "/ page",
+                  desc: "Vibrant, full-color printing for presentations and photos.",
+                  color: "text-emerald-600"
+                },
+                {
+                  icon: FolderOpen,
+                  title: "Spiral Binding",
+                  price: "₹15",
+                  unit: "/ kit",
+                  desc: "Professional spiral binding with cover and back sheet.",
+                  color: "text-blue-600"
+                }
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col rounded-2xl border border-zinc-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1">
+                  <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-50 ring-1 ring-zinc-900/5 ${item.color}`}>
+                    <item.icon className="h-7 w-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-zinc-900">{item.title}</h3>
+                  <div className="my-4 flex items-baseline text-zinc-900">
+                    <span className="text-4xl font-extrabold tracking-tight">{item.price}</span>
+                    <span className="ml-1 text-sm font-medium text-zinc-500">{item.unit}</span>
+                  </div>
+                  <p className="text-zinc-500 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="w-full bg-white border-t border-zinc-200 pt-16 pb-8">
@@ -226,7 +280,7 @@ export default function LandingPage() {
                 <div className="h-8 w-8 rounded-lg bg-zinc-900 flex items-center justify-center">
                   <Printer className="h-4 w-4 text-white" />
                 </div>
-                <span className="text-xl font-bold text-zinc-900">Qopy</span>
+                <span className="text-xl font-bold text-zinc-900">Quick Copy</span>
               </div>
               <p className="text-sm text-zinc-500 leading-relaxed">
                 The modern printing infrastructure for the digital age. Fast, secure, and everywhere you need it.
@@ -264,7 +318,7 @@ export default function LandingPage() {
           </div>
 
           <div className="pt-8 border-t border-zinc-100 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-zinc-400">© 2024 Qopy Inc. All rights reserved.</p>
+            <p className="text-sm text-zinc-400">© 2024 Quick Copy Inc. All rights reserved.</p>
             <div className="flex gap-6">
               {/* Social Icons could go here */}
             </div>
