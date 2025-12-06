@@ -111,7 +111,7 @@ export function PrintSettingsDialog({ file, open, onOpenChange }: PrintSettingsD
                                         )}
                                     >
                                         <div className="font-medium text-zinc-900 text-xs sm:text-base">Lighter</div>
-                                        <div className="text-[10px] sm:text-xs text-zinc-500 mt-0.5">Save ink</div>
+                                        <div className="text-[10px] sm:text-xs text-zinc-500 mt-0.5"></div>
                                         {options.density === 'lighter' && (
                                             <div className="absolute top-1 right-1 sm:top-2 sm:right-2 text-emerald-600">
                                                 <CheckCircle2 className="h-4 w-4" />
