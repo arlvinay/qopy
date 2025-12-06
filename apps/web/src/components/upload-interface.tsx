@@ -70,7 +70,7 @@ export function UploadInterface({
             <main className="container mx-auto px-4 md:px-6 py-8 pb-32 lg:pb-8">
                 <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
                     <div className="space-y-6">
-                        <div>
+                        <div className="text-center">
                             <h1 className="text-2xl font-bold text-zinc-900">{headline}</h1>
                             <p className="text-zinc-500">{subtext}</p>
                         </div>

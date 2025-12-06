@@ -175,23 +175,23 @@ export function CartList() {
             <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-zinc-200 lg:static lg:bg-transparent lg:border-none z-50">
                 <div className="lg:bg-zinc-900 lg:text-white lg:rounded-2xl lg:shadow-lg lg:p-6 p-3 safe-area-bottom">
 
-                    {/* Breakdown Section - Hidden on very small screens if needed, or compacted */}
-                    <div className="mb-2 pb-2 border-b border-zinc-100 lg:border-zinc-700 grid grid-cols-4 lg:grid-cols-3 gap-2 text-[10px] lg:text-sm">
-                        <div className="flex flex-col lg:flex-row lg:justify-between text-zinc-600 lg:text-zinc-400">
+                    {/* Breakdown Section - Vertical Stack */}
+                    <div className="mb-3 pb-3 border-b border-zinc-100 lg:border-zinc-700 flex flex-col gap-2 text-xs lg:text-sm">
+                        <div className="flex justify-between text-zinc-600 lg:text-zinc-400">
                             <span>Sheets</span>
                             <span className="font-medium text-zinc-900 lg:text-white">{totalSheets}</span>
                         </div>
-                        <div className="flex flex-col lg:flex-row lg:justify-between text-zinc-600 lg:text-zinc-400">
+                        <div className="flex justify-between text-zinc-600 lg:text-zinc-400">
                             <span>Copies</span>
                             <span className="font-medium text-zinc-900 lg:text-white">{totalCopies}</span>
                         </div>
                         {bindingKits > 0 && (
-                            <div className="flex flex-col lg:flex-row lg:justify-between text-zinc-600 lg:text-zinc-400">
+                            <div className="flex justify-between text-zinc-600 lg:text-zinc-400">
                                 <span>Binding</span>
                                 <span className="font-medium text-zinc-900 lg:text-white">₹{bindingCost}</span>
                             </div>
                         )}
-                        <div className="flex flex-col lg:flex-row lg:justify-between text-zinc-600 lg:text-zinc-400">
+                        <div className="flex justify-between text-zinc-600 lg:text-zinc-400">
                             <span>Print</span>
                             <span className="font-medium text-zinc-900 lg:text-white">₹{printingCost}</span>
                         </div>
