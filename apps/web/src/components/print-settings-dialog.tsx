@@ -218,16 +218,17 @@ export function PrintSettingsDialog({ file, open, onOpenChange }: PrintSettingsD
                             <h3 className="font-bold text-zinc-900 text-sm sm:text-lg pt-2 sm:pt-4 border-t border-zinc-100">Price Summary</h3>
 
                             {/* Mobile: Horizontal Grid, Desktop: Vertical Stack */}
-                            <div className="grid grid-cols-3 sm:flex sm:flex-col gap-2 sm:gap-3 text-xs sm:text-sm">
-                                <div className="flex flex-col sm:flex-row sm:justify-between text-zinc-600">
+                            {/* Price Summary - Vertical Stack for all screens as per user request */}
+                            <div className="flex flex-col gap-2 text-sm">
+                                <div className="flex justify-between text-zinc-600">
                                     <span>Sheets</span>
                                     <span className="font-medium text-zinc-900">{price.sheets}</span>
                                 </div>
-                                <div className="flex flex-col sm:flex-row sm:justify-between text-zinc-600">
+                                <div className="flex justify-between text-zinc-600">
                                     <span>Copies</span>
                                     <span className="font-medium text-zinc-900">{options.copies}</span>
                                 </div>
-                                <div className="flex flex-col sm:flex-row sm:justify-between text-zinc-600">
+                                <div className="flex justify-between text-zinc-600">
                                     <span>Cost</span>
                                     <span className="font-medium text-zinc-900">₹{price.printingCost}</span>
                                 </div>
